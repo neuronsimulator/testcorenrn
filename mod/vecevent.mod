@@ -126,7 +126,7 @@ static void bbcore_write(double* xarray, int* iarray, int* xoffset, int* ioffset
   if (_p_ptr) {
     dsize = vector_capacity(_p_ptr);
   }
-  if (xarray) {
+  if (iarray) {
     void* vec = _p_ptr;
     ia = iarray + *ioffset;
     xa = xarray + *xoffset;
