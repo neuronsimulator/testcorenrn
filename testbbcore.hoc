@@ -19,16 +19,16 @@ netcons.append(nc)
 pc.cell(ncell, nc)
 
 for (gid = pc.id; gid < ncell; gid += pc.nhost) {
-  pc.set_gid2node(gid, pc.id)
+  pc.set_gid2node(gid + 1, pc.id)
   cell = new NetStim()
   cell.interval = 2
   cell.start = 1
   cell.noise = 1
   cell.number=1e9
-  cell.noiseFromRandom123(gid, 2, 3)
+  cell.noiseFromRandom123(gid + 1, 2, 3)
   nc = new NetCon(cell, nil)
   netcons.append(nc)
-  pc.cell(gid, nc)
+  pc.cell(gid + 1, nc)
   cells.append(cell)
 }
 

@@ -31,16 +31,16 @@ nclist = new List()
 
 for (gid = pc.id; gid < ncell; gid += pc.nhost) {
   r = new Random()
-  r.Random123(gid, 0, 0)
+  r.Random123(gid + 1, 0, 0)
   r.uniform(0,1)
-  pc.set_gid2node(gid, pc.id)
+  pc.set_gid2node(gid + 1, pc.id)
   cell = new Cell()
-  cell.soma pc.cell(gid, new NetCon(&cell.soma.v(.5), nil))
-  //cell.syn.noiseFromRandom123(gid,2,3)
+  cell.soma pc.cell(gid + 1, new NetCon(&cell.soma.v(.5), nil))
+  //cell.syn.noiseFromRandom123(gid + 1,2,3)
   cells.append(cell)
 
-  // all cell syn have a source of 1000+gid%5
-  nc = pc.gid_connect(1000+gid%5, cell.syn)
+  // all cell syn have a source of 1000+(gid + 1)%5
+  nc = pc.gid_connect(1000+(gid + 1)%5, cell.syn)
   nc.weight = .01 + r.repick()*.01
   nc.delay = 1 + r.repick()
   nclist.append(nc)

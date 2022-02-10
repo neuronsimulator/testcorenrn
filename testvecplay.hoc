@@ -38,10 +38,10 @@ idvec = new Vector()
 cells = new List()
 
 for (gid = pc.id; gid < ncell; gid += pc.nhost) {
-  pc.set_gid2node(gid, pc.id)
-  cell = new Cell(gid, ncell)
-  cell.soma pc.cell(gid, new NetCon(&cell.soma.v(.5), nil))
-  //cell.syn.noiseFromRandom123(gid,2,3)
+  pc.set_gid2node(gid + 1, pc.id)
+  cell = new Cell(gid + 1, ncell)
+  cell.soma pc.cell(gid + 1, new NetCon(&cell.soma.v(.5), nil))
+  //cell.syn.noiseFromRandom123(gid + 1,2,3)
   cells.append(cell)
 }
 

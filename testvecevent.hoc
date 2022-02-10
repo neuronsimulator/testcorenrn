@@ -20,12 +20,12 @@ endtemplate Cell
 
 for (gid = pc.id; gid < ncell; gid += pc.nhost) {
   pc.set_gid2node(gid, pc.id)
-if (gid < pc.nhost) {
-  cell = new Cell()
-  cells.append(cell)
-  pc.cell(gid, new NetCon(&cell.soma.v(.5), nil))
-  continue
-}
+  if (gid < pc.nhost) {
+    cell = new Cell()
+    cells.append(cell)
+    pc.cell(gid, new NetCon(&cell.soma.v(.5), nil))
+    continue
+  }
   cell = new VecStim()
   vec = new Vector(10)
   vec.indgen(.1*gid, 1)
