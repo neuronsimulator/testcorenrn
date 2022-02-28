@@ -232,8 +232,7 @@ VERBATIM
 ENDVERBATIM
 }
 
-:BEFORE BREAKPOINT {
-PROCEDURE foo() {
+BEFORE BREAKPOINT {
 	if (on > 0) {
 		g_e = g_e0 + g_e1
 		if (g_e < 0) { g_e = 0 }
@@ -241,6 +240,8 @@ PROCEDURE foo() {
 		if (g_i < 0) { g_i = 0 }
 		ival = g_e * (v - E_e) + g_i * (v - E_i)
 	} else {
+		g_e = 0
+		g_i = 0
 		ival = 0
 	}
 	
@@ -249,7 +250,8 @@ PROCEDURE foo() {
 
 
 BREAKPOINT {
-      foo()
+      CONDUCTANCE g_e
+      CONDUCTANCE g_i
       i = ival   
     }
 
