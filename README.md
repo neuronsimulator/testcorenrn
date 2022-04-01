@@ -5,6 +5,10 @@ More information about `NEURON` and `CoreNEURON` can be found here:
 * [NEURON](https://github.com/neuronsimulator/nrn)
 * [CoreNEURON](https://github.com/BlueBrain/CoreNeuron)
 
+# Compatibility
+
+- This version of the repository is compatible with NEURON versions newer than 8.1 (#10)
+
 # How to install `NEURON` with `CoreNEURON`
 
 More information and details how to do this you can find in the above links. A typical way to install them to run the tests is the following:
