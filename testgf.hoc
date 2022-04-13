@@ -22,12 +22,16 @@ proc init() {
 endtemplate Cell
 
 ncell = 100
-objref cell, cells, nc, netcons, st, stims, nil
+objref cell, cells, nc, netcons, st, stims, nil, rng
 pnm = new ParallelNetManager(0)
 pc = pnm.pc
 tvec = new Vector()
 idvec = new Vector()
 cells = new List()
+
+// test with non-default global seed
+rng = new Random()
+rng.Random123_globalindex(2022)
 
 for (gid = pc.id; gid < ncell; gid += pc.nhost) {
   pc.set_gid2node(gid, pc.id)
