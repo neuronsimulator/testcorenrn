@@ -154,7 +154,7 @@ static void bbcore_read(double* xarray, int* iarray, int* xoffset, int* ioffset,
     pv = vector_new1(dsize);
   }
   assert(dsize == vector_capacity(pv));
-  _p_ptr = (double*)pv;
+  _p_ptr = pv;
 
   dv = vector_vec(pv);
   for (i = 0; i < dsize; ++i) {
